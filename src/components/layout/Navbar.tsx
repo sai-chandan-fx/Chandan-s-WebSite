@@ -1,7 +1,5 @@
-
 import * as React from 'react';
-import { Menu, X, Search } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,6 +8,7 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import MobileMenu from './MobileMenu';
+import { ThemeToggle } from '../ThemeToggle';
 
 const menuItems = {
   VFX: {
@@ -31,22 +30,22 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   return (
-    <header className="bg-brand-gray/80 backdrop-blur-lg sticky top-0 z-50 border-b border-brand-light-gray">
+    <header className="bg-background/80 backdrop-blur-lg sticky top-0 z-50 border-b border-border">
       <nav className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-32">
           <div className="flex items-center space-x-8">
             <a href="/">
-              <img src="/lovable-uploads/e0e406b0-0578-4c00-be4e-e6fbbcaa3901.png" alt="Chandan VFX Logo" className="h-10 invert" />
+              <img src="/lovable-uploads/e0e406b0-0578-4c00-be4e-e6fbbcaa3901.png" alt="Chandan VFX Logo" className="h-[100px] w-[200px] invert dark:invert-0" />
             </a>
             <div className="hidden lg:flex">
               <NavigationMenu>
                 <NavigationMenuList>
                   {Object.keys(menuItems).map((item) => (
                     <NavigationMenuItem key={item}>
-                      <NavigationMenuTrigger className="bg-transparent text-white hover:bg-brand-light-gray/50 hover:text-white focus:bg-brand-light-gray/50 focus:text-white data-[active]:bg-brand-light-gray/50 data-[state=open]:bg-brand-light-gray/50">
+                      <NavigationMenuTrigger className="bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
                         {item}
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent className="bg-brand-gray border-brand-light-gray">
+                      <NavigationMenuContent className="bg-popover border-border">
                         <div className="grid gap-x-8 gap-y-4 p-6 md:w-[600px] lg:w-[800px] grid-cols-3">
                           {Object.entries(menuItems[item as keyof typeof menuItems]).map(([category, links]) => (
                             <div key={category}>
@@ -54,7 +53,7 @@ const Navbar = () => {
                               <ul className="space-y-1">
                                 {links.map((link) => (
                                   <li key={link}>
-                                    <a href="#" className="block text-sm text-gray-300 hover:text-white">{link}</a>
+                                    <a href="#" className="block text-sm text-muted-foreground hover:text-foreground">{link}</a>
                                   </li>
                                 ))}
                               </ul>
@@ -65,12 +64,12 @@ const Navbar = () => {
                     </NavigationMenuItem>
                   ))}
                   <NavigationMenuItem>
-                    <a href="#" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-light-gray/50 hover:text-white focus:bg-brand-light-gray/50 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                    <a href="#" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                       Sounds
                     </a>
                   </NavigationMenuItem>
                    <NavigationMenuItem>
-                    <a href="#" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-light-gray/50 hover:text-white focus:bg-brand-light-gray/50 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                    <a href="#" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                       Plugins
                     </a>
                   </NavigationMenuItem>
@@ -79,19 +78,13 @@ const Navbar = () => {
             </div>
           </div>
           
-          <div className="hidden lg:flex items-center space-x-4">
-             <div className="relative w-64">
-                <input type="search" placeholder="Search..." className="bg-brand-light-gray/50 text-white placeholder-gray-400 rounded-full py-2 pl-10 pr-4 w-full focus:outline-none focus:ring-2 focus:ring-brand-blue" />
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <div className="flex items-center space-x-4">
+            <ThemeToggle />
+            <div className="lg:hidden">
+              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-foreground">
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
             </div>
-            <Button variant="ghost" className="text-white hover:bg-brand-light-gray/50 hover:text-white">Login</Button>
-            <Button className="bg-brand-blue hover:bg-blue-600">Register</Button>
-          </div>
-
-          <div className="lg:hidden">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
           </div>
         </div>
       </nav>
