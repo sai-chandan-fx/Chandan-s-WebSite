@@ -35,8 +35,8 @@ const Navbar = () => {
       <nav className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-8">
-            <a href="/" className="text-2xl font-bold text-white">
-              <span className="text-brand-blue">Production</span>Crate
+            <a href="/">
+              <img src="/lovable-uploads/e0e406b0-0578-4c00-be4e-e6fbbcaa3901.png" alt="Chandan VFX Logo" className="h-10 invert" />
             </a>
             <div className="hidden lg:flex">
               <NavigationMenu>
