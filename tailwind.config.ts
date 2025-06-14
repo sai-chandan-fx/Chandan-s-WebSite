@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,7 +19,14 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+        sans: ['"Montserrat"', 'sans-serif'],
+      },
 			colors: {
+				'brand-blue': '#2c67ff',
+        'brand-dark': '#121212',
+        'brand-gray': '#1a1a1a',
+        'brand-light-gray': '#2b2b2b',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -94,3 +102,4 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
