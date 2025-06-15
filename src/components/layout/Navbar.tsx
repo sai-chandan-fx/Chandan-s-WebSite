@@ -25,14 +25,15 @@ const Navbar = () => {
     <header className="bg-background/80 backdrop-blur-lg sticky top-0 z-50 border-b border-border">
       <nav className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-32">
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-12">
             <a href="/">
-              <img 
-                src="/lovable-uploads/e0e406b0-0578-4c00-be4e-e6fbbcaa3901.png" 
-                alt="Chandan VFX Logo" 
-                className="h-[100px] w-[200px]"
-                style={{ filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.7))' }}
-              />
+              <div className="bg-white p-1 rounded-md border-2 border-primary">
+                <img
+                  src="/lovable-uploads/e0e406b0-0578-4c00-be4e-e6fbbcaa3901.png"
+                  alt="Chandan VFX Logo"
+                  className="h-[100px] w-[200px]"
+                />
+              </div>
             </a>
             <div className="hidden lg:flex">
               <NavigationMenu>
