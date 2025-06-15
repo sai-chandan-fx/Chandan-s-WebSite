@@ -2,7 +2,6 @@
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -23,7 +22,7 @@ export default {
         sans: ['"Montserrat"', 'sans-serif'],
       },
 			colors: {
-				'brand-blue': '#2c67ff',
+				'brand-orange': '#ff6a2e',
         'brand-dark': '#121212',
         'brand-gray': '#1a1a1a',
         'brand-light-gray': '#2b2b2b',
@@ -102,4 +101,3 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
