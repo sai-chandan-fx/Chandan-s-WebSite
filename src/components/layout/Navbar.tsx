@@ -48,7 +48,7 @@ const Navbar = () => {
           <li key={item}>
             <a 
               href={`/experience/${toSlug(item)}`} 
-              className="block text-sm text-muted-foreground hover:text-foreground p-2 rounded-md hover:bg-accent"
+              className="block text-sm text-muted-foreground hover:text-foreground p-3 rounded-md hover:bg-accent transition-colors"
             >
               {item}
             </a>
@@ -58,19 +58,20 @@ const Navbar = () => {
         return (
           <li key={item.name}>
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center justify-between w-full text-sm text-muted-foreground hover:text-foreground p-2 rounded-md hover:bg-accent">
+              <DropdownMenuTrigger className="flex items-center justify-between w-full text-sm text-muted-foreground hover:text-foreground p-3 rounded-md hover:bg-accent transition-colors group">
                 {item.name}
-                <ChevronRight className="h-4 w-4 ml-1" />
+                <ChevronRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 
                 side="right" 
-                className="bg-popover border-border shadow-lg z-50"
+                sideOffset={8}
+                className="bg-background/95 backdrop-blur-sm border-border shadow-xl z-[100] min-w-[200px]"
               >
                 {item.subItems.map((subItem) => (
                   <DropdownMenuItem key={subItem} asChild>
                     <a 
                       href={`/experience/${toSlug(item.name)}/${toSlug(subItem)}`}
-                      className="block text-sm text-muted-foreground hover:text-foreground p-2 rounded-md hover:bg-accent cursor-pointer"
+                      className="block text-sm text-muted-foreground hover:text-foreground p-3 rounded-md hover:bg-accent cursor-pointer transition-colors w-full"
                     >
                       {subItem}
                     </a>
@@ -85,7 +86,7 @@ const Navbar = () => {
           <li key={item.name}>
             <a 
               href={`/experience/${toSlug(item.name)}`} 
-              className="block text-sm text-muted-foreground hover:text-foreground p-2 rounded-md hover:bg-accent"
+              className="block text-sm text-muted-foreground hover:text-foreground p-3 rounded-md hover:bg-accent transition-colors"
             >
               {item.name}
             </a>
@@ -110,7 +111,7 @@ const Navbar = () => {
               </div>
             </a>
             <div className="hidden lg:flex">
-              <NavigationMenu>
+              <NavigationMenu delayDuration={150}>
                 <NavigationMenuList className="flex items-center space-x-2">
                   <NavigationMenuItem>
                     <a href="/" className={navLinkClasses}>Home</a>
@@ -123,14 +124,17 @@ const Navbar = () => {
                         <NavigationMenuTrigger className={navTriggerClasses}>
                           {item}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent className="bg-popover border-border">
-                          <ul className="grid p-4 md:w-[500px] lg:w-[600px] grid-cols-3 gap-2">
+                        <NavigationMenuContent className="bg-background/95 backdrop-blur-sm border-border shadow-xl">
+                          <ul className="grid p-6 md:w-[500px] lg:w-[600px] grid-cols-3 gap-1">
                             {item === 'Experience' ? (
                               renderExperienceItems()
                             ) : (
                               (menuItems as any)[item].map((link: string) => (
                                 <li key={link}>
-                                  <a href={`/${toSlug(item)}/${toSlug(link)}`} className="block text-sm text-muted-foreground hover:text-foreground p-2 rounded-md hover:bg-accent">
+                                  <a 
+                                    href={`/${toSlug(item)}/${toSlug(link)}`} 
+                                    className="block text-sm text-muted-foreground hover:text-foreground p-3 rounded-md hover:bg-accent transition-colors"
+                                  >
                                     {link}
                                   </a>
                                 </li>
