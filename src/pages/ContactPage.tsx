@@ -58,7 +58,7 @@ const ContactPage = () => {
                   size="lg" 
                   className="bg-green-800 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                   onClick={() => {
-                  navigator.clipboard.writeText("+1234567890");
+                  navigator.clipboard.writeText("9000057462");
                   window.alert("Phone number copied to clipboard!");
                   }}
                 >
