@@ -6,11 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/Layout";
-import ContactPage from "./pages/ContactPage";
+import ContactPage from "./pages/contact-page";
 import DetailPage from "./pages/DetailPage";
 import ExperiencePage from "./pages/ExperiencePage";
 import CategoryPage from "./pages/CategoryPage";
-import SoftwarePage from "./pages/SoftwarePage";
+import SoftwarePage from "./pages/software-page";
 
 const queryClient = new QueryClient();
 
